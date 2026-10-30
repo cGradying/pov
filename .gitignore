@@ -1,0 +1,7 @@
+cache/
+data/
+.impeccable/
+.playwright-mcp/
+Goals/
+References/
+.DS_Store

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pov: Pick. Open. View.</title>
+  <meta name="description" content="A personal viewing shelf: YouTube links and videos from this computer in one place.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&f[]=boska@400,500,400i,500i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+THESIS: pov = Pick. Open. View. A video shelf that looks like a gradient swatch card, not a streaming clone. Refuses the dark Netflix grid.
+OWN-WORLD: Green Screen palette (#1F4B2C #4D7111 #C3E956 #B2FEE7 #F4FFFC), blurred gradient field, frosted pills, mint grid paper, line-art sparkles, polaroid frames, handwritten asides.
+STORY: Visitor sees what pov is, pastes a YouTube link or browses clips from this Mac, presses play.
+FIRST VIEWPORT: Full-bleed gradient card; PICK. / Open. / VIEW. stacked in Clash Display + Boska italic inside a spinning text ring; source pills orbit the title; the add-link pill is the primary action; meta rows top and bottom like a spec sheet.
+SIGNATURE: Letters rise in on load; cards glitch then become a tilted polaroid on hover; Inspect (I) x-rays the page and shows the data and code behind any element.
+-->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-spark" viewBox="0 0 40 40"><path d="M20 1c1.6 10.4 8.6 17.4 19 19-10.4 1.6-17.4 8.6-19 19-1.6-10.4-8.6-17.4-19-19C11.4 18.4 18.4 11.4 20 1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7.25" fill="currentColor"/><path d="m4.9 8.2 2 2 4.2-4.3" fill="none" stroke="#F4FFFC" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1.75 4.25c0-.7.55-1.25 1.25-1.25h3l1.5 1.5h5.5c.7 0 1.25.55 1.25 1.25v6c0 .7-.55 1.25-1.25 1.25H3c-.7 0-1.25-.55-1.25-1.25v-7.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.9" fill="currentColor"/><circle cx="12" cy="12" r="1.9" fill="currentColor"/><circle cx="12" cy="19" r="1.9" fill="currentColor"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5L8 5.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.7l2.4 4.6c1 1.8 2.3 2.7 4.3 2.7H21m0 0-3-3m3 3-3 3M3 17h3.5c1.4 0 2.4-.5 3.2-1.4M21 7h-3.5c-1.4 0-2.4.5-3.2 1.4M21 7l-3-3m3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6M20 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- #region hero -->
+  <header class="field" aria-labelledby="title" data-src="index.html#hero">
+    <div class="field__glow" aria-hidden="true"></div>
+    <div class="field__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    <svg class="spark spark--a" aria-hidden="true"><use href="#i-spark"/></svg>
+    <svg class="spark spark--b" aria-hidden="true"><use href="#i-spark"/></svg>
+    <svg class="spark spark--c" aria-hidden="true"><use href="#i-spark"/></svg>
+
+    <div class="spec spec--top">
+      <p><strong>pov</strong><span>Pick. Open. View.</span></p>
+      <button type="button" class="xray-btn" id="xray-btn" aria-pressed="false"><svg aria-hidden="true"><use href="#i-code"/></svg>Inspect<kbd>I</kbd></button>
+      <p class="spec__end"><strong>On the shelf</strong><span id="total-count">0 videos</span></p>
+    </div>
+
+    <div class="field__center">
+      <div class="title">
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 600 600"><defs><path id="ring-path" d="M300 300m-262 0a262 262 0 1 1 524 0a262 262 0 1 1-524 0"/></defs>
+          <text><textPath href="#ring-path" textLength="1640">POV IS SHORT FOR · PICK · OPEN · VIEW · YOUTUBE LINKS + VIDEOS ON THIS MAC ·</textPath></text></svg>
+      </div>
+      <h1 id="title" class="display" aria-label="pov: Pick. Open. View.">
+        <span class="line line--pick" data-kinetic>PICK.</span>
+        <span class="line line--open" data-kinetic>Open.</span>
+        <span class="line line--view" data-kinetic>VIEW.</span>
+      </h1>
+      </div>
+
+      <ul class="chips" aria-label="Sources">
+        <li class="chip chip--yt"><span class="chip__dot" aria-hidden="true"></span><span><b id="yt-count">0</b> from YouTube</span></li>
+        <li class="chip chip--local"><span class="chip__dot" aria-hidden="true"></span><span><b id="local-count">0</b> on this computer</span></li>
+      </ul>
+
+      <form id="add-form" class="adder" autocomplete="off" data-src="app.js#add" data-api="POST /api/shelves/:id/youtube" data-api-src="server.js#youtube">
+        <label class="sr-only" for="add-url">YouTube link</label>
+        <input id="add-url" name="url" type="url" required placeholder="Pick a YouTube video or playlist link">
+        <label class="sr-only" for="add-shelf">Shelf</label>
+        <select id="add-shelf" name="shelf"></select>
+        <button type="submit" class="adder__go" aria-label="Add to shelf"><svg><use href="#i-arrow"/></svg></button>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="spec spec--bottom">
+      <p><strong>COMP 001</strong><span>Introduction to Computing</span></p>
+      <p><strong>Sources</strong><span>YouTube links, this Mac</span></p>
+      <p class="spec__end"><strong>Made by</strong><span>cGradying <span class="scribble">:)</span></span></p>
+    </div>
+  </header>
+  <!-- #endregion -->
+
+  <main class="desk">
+    <div class="desk__bar">
+      <p class="scribble scribble--note">things worth watching, from my point of view</p>
+      <button type="button" class="pill-btn" id="new-shelf-btn"><svg><use href="#i-plus"/></svg>New shelf</button>
+    </div>
+
+    <div id="yt-shelves"></div>
+
+    <section class="shelf shelf--local" aria-labelledby="local-title" data-src="app.js#loadLocal" data-api="GET /api/local" data-api-src="server.js#local">
+      <div class="shelf__head">
+        <div>
+          <h2 id="local-title">On this computer</h2>
+          <p class="shelf__sub" id="local-sub">Clips found on this Mac, played from where they live</p>
+        </div>
+        <div class="shelf__tools">
+          <button type="button" class="pill-btn" id="shuffle-btn"><svg><use href="#i-shuffle"/></svg>Shuffle</button>
+          <button type="button" class="pill-btn" id="rescan-btn"><svg><use href="#i-refresh"/></svg>Rescan</button>
+          <button type="button" class="nav-btn" data-dir="-1" aria-label="Scroll left"><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <button type="button" class="nav-btn" data-dir="1" aria-label="Scroll right"><svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <ul class="row" id="local-row" aria-label="Videos on this computer"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__mark" aria-hidden="true"><span>Pick.</span> <em>Open.</em> <span>View.</span></p>
+    <p class="foot__line">pov<span class="foot__dot" aria-hidden="true"></span>YouTube videos stay on YouTube. Your files stay where they are.<span class="foot__hint">Press <kbd>I</kbd> to see how it works</span></p>
+    <svg class="spark spark--foot" aria-hidden="true"><use href="#i-spark"/></svg>
+  </footer>
+
+  <dialog id="player" class="player" aria-labelledby="player-title" data-src="app.js#play" data-api="GET /media/:id" data-api-src="server.js#media">
+    <div class="player__frame" id="player-frame"></div>
+    <div class="player__info">
+      <div>
+        <h2 id="player-title"></h2>
+        <p id="player-meta"></p>
+      </div>
+      <button type="button" class="nav-btn nav-btn--light" id="player-close" aria-label="Close player"><svg><use href="#i-close"/></svg></button>
+    </div>
+  </dialog>
+
+  <dialog id="shelf-dialog" class="sheet" aria-labelledby="sheet-title">
+    <form method="dialog" id="shelf-form">
+      <h2 id="sheet-title">New shelf</h2>
+      <label>Name<input name="title" required maxlength="80" placeholder="ABS-CBN News Documentaries"></label>
+      <label>One line about it<input name="subtitle" maxlength="140" placeholder="Full episodes worth a weekend"></label>
+      <div class="sheet__actions">
+        <button type="button" class="pill-btn" value="cancel" id="sheet-cancel">Cancel</button>
+        <button type="submit" class="pill-btn pill-btn--solid" value="create">Make shelf</button>
+      </div>
+    </form>
+  </dialog>
+
+  <aside id="inspector" class="inspector xr-ui" aria-label="Inspector" hidden>
+    <div class="inspector__head">
+      <div>
+        <p class="inspector__sel" id="xr-sel"></p>
+        <p class="inspector__src" id="xr-src"></p>
+      </div>
+      <button type="button" class="nav-btn nav-btn--light" id="xr-close" aria-label="Close inspector"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="inspector__tabs" role="tablist" id="xr-tabs">
+      <button role="tab" type="button" data-tab="html" aria-selected="true">HTML</button>
+      <button role="tab" type="button" data-tab="styles" aria-selected="false">Styles</button>
+      <button role="tab" type="button" data-tab="data" aria-selected="false">Data</button>
+      <button role="tab" type="button" data-tab="code" aria-selected="false">Code</button>
+      <button role="tab" type="button" data-tab="api" aria-selected="false">API</button>
+    </div>
+    <p class="inspector__note" id="xr-note"></p>
+    <pre class="inspector__code" id="xr-out" tabindex="0"></pre>
+  </aside>
+
+  <script src="app.js"></script>
+  <script src="inspect.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "pov",
+  "version": "1.0.0",
+  "description": "pov: a personal viewing shelf for YouTube links and videos on this computer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "license": "MIT"
+}
